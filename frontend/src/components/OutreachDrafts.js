@@ -14,8 +14,7 @@ import {
   Snackbar,
   Alert,
   Divider,
-  IconButton,
-  Tooltip
+  IconButton
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -26,7 +25,8 @@ import api from '../services/api';
 
 const OutreachDrafts = () => {
   const [drafts, setDrafts] = useState([]);
-  const [fetchingDrafts, setFetchingDrafts] = useState(true);
+  // Changed to use loading state instead of separate fetchingDrafts state
+  const [, setFetchingDrafts] = useState(true);
   const [editingDraft, setEditingDraft] = useState(null);
   const [editedMessage, setEditedMessage] = useState('');
   const [loading, setLoading] = useState(false);

@@ -8,15 +8,8 @@ import {
   CardContent,
   Button,
   Divider,
-  CircularProgress,
   Snackbar,
   Alert,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   LinearProgress
 } from '@mui/material';
 import PeopleIcon from '@mui/icons-material/People';
@@ -39,7 +32,8 @@ const Summary = () => {
     averageResponseTime: '0 days'
   });
   const [loading, setLoading] = useState(false);
-  const [fetchingMetrics, setFetchingMetrics] = useState(true);
+  // Changed to use loading state instead of separate fetchingMetrics state
+  const [, setFetchingMetrics] = useState(true);
   const [progressValue, setProgressValue] = useState(0);
   const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
   const [reportGenerated, setReportGenerated] = useState(false);

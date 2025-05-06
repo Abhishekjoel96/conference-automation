@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Box,
   Typography,
-  Paper,
   Card,
   CardContent,
   CardMedia,
@@ -30,7 +29,8 @@ const SentMessages = () => {
   const [sentMessages, setSentMessages] = useState([]);
   const [viewMessage, setViewMessage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [fetchingSentMessages, setFetchingSentMessages] = useState(true);
+  // Changed to use loading state instead of separate fetchingSentMessages state
+  const [, setFetchingSentMessages] = useState(true);
   const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
   
   // Fetch sent messages when component mounts

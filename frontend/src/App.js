@@ -55,7 +55,8 @@ function App() {
     messagesApproved: 0,
     messagesSent: 0
   });
-  const [activeStep, setActiveStep] = React.useState(0);
+  // activeStep state removed as it's currently not in use but setActiveStep is passed to child components
+  const [, setActiveStep] = React.useState(0);
   const [approvalUrl, setApprovalUrl] = React.useState('');
   
   return (

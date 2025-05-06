@@ -37,7 +37,8 @@ const MessageApproval = () => {
   const [feedback, setFeedback] = useState('');
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
-  const [fetchingApprovals, setFetchingApprovals] = useState(true);
+  // Changed to use loading state instead of separate fetchingApprovals state
+  const [, setFetchingApprovals] = useState(true);
 
   // Fetch approvals from API when component mounts
   useEffect(() => {
@@ -149,36 +150,7 @@ const MessageApproval = () => {
     }
   };
   
-  const handleEditMessage = async (id, updatedMessage) => {
-    setLoading(true);
-    try {
-      await api.put(`/api/messages/${id}/edit`, { updatedMessage });
-      
-      // Update local state
-      setApprovals(prevApprovals => 
-        prevApprovals.map(msg => 
-          msg.id === id ? { ...msg, message: updatedMessage, status: 'Pending' } : msg
-        )
-      );
-      
-      setNotification({
-        open: true,
-        message: 'Message updated successfully',
-        severity: 'success',
-      });
-      
-      handleCloseMessage();
-    } catch (error) {
-      console.error('Error updating message:', error);
-      setNotification({
-        open: true,
-        message: 'Failed to update message. Please try again.',
-        severity: 'error'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  // handleEditMessage removed as it's not currently used in the component
 
   const handleCloseNotification = () => {
     setNotification({ ...notification, open: false });

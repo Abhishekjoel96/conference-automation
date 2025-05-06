@@ -1,0 +1,31 @@
+# Build and deployment
+.vercel
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.env.*
+.vercel.env
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Logs and output files
+logs/
+*.log
+
+# Credentials
+/credentials/*.json
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
